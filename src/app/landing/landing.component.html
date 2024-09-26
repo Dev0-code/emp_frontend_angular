@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 90vh; background-color: rgb(101, 101, 237);">
+
+    <div class="row w-50 border p-5 shadow bg-light">
+
+        <div class="col">
+<img class="img-fluid" src="https://img.freepik.com/free-vector/secure-login-concept-illustration_114360-4582.jpg?w=740&t=st=1726048003~exp=1726048603~hmac=694d4c9fed92f043ff9a6189c290b5131f73f87cb191d72f37ae5d23411087bb" alt="">
+        </div>
+
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+            <form (ngSubmit)="submitted()" #lgform="ngForm" action="">
+                <h3 class="text-center mb-2">Login</h3>
+                <input type="text" placeholder="email" #email="ngModel" name="email" [(ngModel)]="logForm.email" id="email" email required class="form-control mb-3">
+                <div *ngIf="email.invalid && email.touched" class="text-danger">
+                  *invalid email
+                </div>
+                <input type="password" placeholder="password" #password="ngModel" [(ngModel)]="logForm.password" name="password" id="password" required minlength="3" pattern="[a-zA-Z0-9@!]+" class="form-control mb-3">
+
+<div *ngIf="password.invalid&&password.touched" class="text-danger">
+    *invalid password
+</div>
+                
+                <button class="btn btn-primary" [disabled]="lgform.invalid" >Login</button>
+            </form>
+        </div>
+    </div>
+
+</div>
